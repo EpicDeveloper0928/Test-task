@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./episodes.component.scss'],
 })
 export class EpisodesComponent implements OnInit {
-  constructor(private api: ApiService) {}
+  constructor(private _apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.api.getEpisodes().subscribe((res: Episode) => {
+    this._apiService.getEpisodes().subscribe((res: Episode) => {
       res.results.map((val) => {
         val.characters = Object.assign({}, val.characters);
       });
